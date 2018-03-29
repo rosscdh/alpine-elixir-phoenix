@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: mix phx.server
+    ports:
+      - "4000:4000"
+    volumes:
+      - "$PWD/hello:/opt/app"
+    links:
+      - db
+
+  db:
+    image: postgres:10-alpine
