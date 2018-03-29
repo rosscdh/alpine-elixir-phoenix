@@ -31,6 +31,9 @@ ENV PATH=./node_modules/.bin:$PATH \
 RUN mix local.hex --force && \
     mix local.rebar --force
 
+# Install phoenixframework
+RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+
 WORKDIR /opt/app
 
 CMD ["/bin/sh"]
